@@ -25,11 +25,11 @@ $.ajax({
 			// Hide the results before doing a new search.
 			$CourseBox.css('display', 'none');
 
-			var $UserInput = ($CourseNumber.val());
-			console.log($UserInput);
+			var UserInput = $CourseNumber.val();
+			console.log(UserInput);
 			for (var i = 0; i < data.length; i++) {
-				//console.log(data[i].l, data[i].guid, $UserInput, $UserInput == data[i].guid, $UserInput === data[i].guid);
-				if ($UserInput == data[i].guid) {
+				//console.log(data[i].l, data[i].guid, UserInput, UserInput == data[i].guid, UserInput === data[i].guid);
+				if (UserInput == data[i].guid) {
 					$CourseBox.css('display', '');
 					console.log([i]);
 					$CourseTitle.text(data[i].l);
