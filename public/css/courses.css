@@ -1,0 +1,118 @@
+html {
+    background-color: #646D8E;
+}
+
+body {
+    text-align: left;
+    font-family: "Palatino linotype", trebuchet, arial;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.Container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    background-color: #B6BECB;
+}
+
+.TitleBar {
+    width: 475px;
+}
+
+#CourseTitle {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#HonorLabel {
+    float: right;
+    margin-top: 28px;
+    margin-right: 25px;
+    background-color: #EDED85;
+}
+
+#CourseDescription {
+    margin: 15px;
+}
+
+.very-red {
+    color: #F00;
+}
+
+#Subtitle {
+    margin-left: 5px;
+}
+
+
+.List {
+    margin-left: 15px;
+}
+
+ul {
+    margin-top: 0px;
+}
+
+#TopBarAndNav {
+    background-color: #e8dbcc;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+#SFCC {
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+#Nav {
+    margin-left: 10px;
+}
+
+#Nav a {
+    text-decoration: none;
+    color: #7986a5;
+    font-size: 17px;
+    padding: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+
+}
+
+#Nav a:visited {
+    color: #7986a5;
+}
+
+#Nav a:hover {
+    color: #66523b;
+}
+
+h1 {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+p {
+    margin-left: 10px;
+}
+
+#CourseBox {
+    margin-left: 20px;
+    box-sizing: border-box;
+    width: 600px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #646D8E;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #dad3c4;
+}
+
+#Level {
+    margin-left: 15px;
+    padding-bottom: 10px;
+
+}
+
+
