@@ -97,14 +97,14 @@ p {
     margin-left: 10px;
 }
 
-#CourseBox {
+#CourseBox, #ErrorBox {
     margin-left: 20px;
     box-sizing: border-box;
     width: 600px;
     border-style: solid;
     border-width: 2px;
     border-color: #646D8E;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px;
     background-color: #dad3c4;
 }

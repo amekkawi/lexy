@@ -4,6 +4,7 @@
 var $CourseNumber = $('#CourseNumber');
 var $CourseTitle = $('#CourseTitle');
 var $Courses = $('#Courses');
+var $ErrorBox = $('#ErrorBox');
 var $CourseBox = $('#CourseBox');
 var $Level = $('#Level > span');
 var $Staff = $('#Staff');
@@ -27,9 +28,13 @@ $.ajax({
 
 			var UserInput = $CourseNumber.val();
 			console.log(UserInput);
+			var FoundIt = false;
 			for (var i = 0; i < data.length; i++) {
 				//console.log(data[i].l, data[i].guid, UserInput, UserInput == data[i].guid, UserInput === data[i].guid);
+
 				if (UserInput == data[i].guid) {
+					FoundIt = true;
+					//$ErrorBox.empty();
 					$CourseBox.css('display', '');
 					console.log([i]);
 					$CourseTitle.text(data[i].l);
@@ -49,6 +54,17 @@ $.ajax({
 					break;
 				}
 			}
+
+
+			if (FoundIt == false) {
+				$ErrorBox.css('display', '')
+			}
+			else {
+				$ErrorBox.css('display', 'none');
+			}
+
+
+
 		});
 
 
