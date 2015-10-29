@@ -5,7 +5,7 @@ var $subjectTitles = $('#subjectTitles');
 var $coursesInSubjectBox = $('#coursesInSubjectBox');
 var $coursesInSubject = $('#coursesInSubject');
 var $courseQuickInfoBox = $('#courseQuickInfoBox');
-var $courseQuickInfo = $('#courseQuickInfo');
+
 
 $.ajax({
 	url: '/public/all.json',
@@ -72,26 +72,46 @@ $.ajax({
 				});
 
 				function courseClickHandler($link, clickedCourse) {
-					$link.on('click', function(evt) {
+					$link.on('click', function (evt) {
 						evt.preventDefault();
 						console.log('clicked course with title', clickedCourse);
-						return;
+						$courseQuickInfoBox.css('display', '');
 
-						for (var i = 0; i < data.staff.length; i++) {
-							var $EachStaffMember = $("<li></li>").text(data.staff[i].title);
-							$EachStaffMember.appendTo($courseQuickInfo);
+						var $guidText = $('.guid-text');
+						$guidText.empty();
+						$guidText.text(clickedCourse.guid);
+						var $staffList = $('.staff-list');
+						$staffList.empty();
+						for (var s = 0; s < clickedCourse.staff.length; s++) {
+							var $eachStaffMember = $("<li></li>").text(clickedCourse.staff[s]);
+							$eachStaffMember.appendTo($staffList);
+
 						}
 
-						var $CopyOfTheTemplate = $('#MyTemplate').clone();
 
 
+						/*for (var s = 0; s < clickedCourse.length; s++) {
+							var $courseQuickInfoBox = $('#courseQuickInfoBox');
+							$courseQuickInfoBox.css('display', '');
 
-
-
-
+							var $guidText = $('.guid-text');
+							$guidText.text(clickedCourse[s].guid);
+						}*/
 
 					})
 				}
+
+
+							//var $EachStaffMember = $("<li></li>").text(clickedCourse.staff[0]);
+							//$EachStaffMember.appendTo($staffList);
+
+
+
+
+
+						//var $CopyOfTheTemplate = $('#MyTemplate').clone();
+
+
 
 				//The below turns the course names into links - WILL ADD THIS BACK IN, SLIGHTLY MODIFIED
 				/*for (var p = 0; p < coursesArrayForTheSubject.length; p++) {
@@ -103,9 +123,12 @@ $.ajax({
 					$eachNewCourseListItem.appendTo($coursesInSubject);
 				}*/
 
+
+				//the below turns the course names into links, list items, and puts them on the dom
 				for (var p = 0; p < coursesArrayForTheSubject.length; p++) {
 					var $eachNewCourseNameLink = $('<a href="javascript:"></a>');
 
+					//coursesArrayForTheSubject[p], below, resolves to ONE distinct course (one item in an array of courses for ONE subject)
 					courseClickHandler($eachNewCourseNameLink, coursesArrayForTheSubject[p]);
 					$eachNewCourseNameLink.text(coursesArrayForTheSubject[p].l);
 
