@@ -9,9 +9,11 @@ var $CourseBox = $('#CourseBox');
 var $Level = $('#Level > span');
 var $Staff = $('#Staff');
 var $Subjects = $('#Subjects');
+var $AllSubjects = $('#AllSubjects');
+var $LotsOfSubjects = $('#LotsOfSubjects');
 
 $.ajax({
-	url: 'all.json',
+	url: '/public/all.json',
 	success: function(data) {
 		console.log('got the data!');
 
@@ -19,6 +21,17 @@ $.ajax({
 			//var $EachCourseInArray = $("<li></li>").text(data[i].l);
 			//$EachCourseInArray.appendTo($Courses);
 		//}
+
+		/* for (var i = 0; i < data.length; i++) {
+			for (var c = 0; c < data[i].subjects.length; c++) {
+				var $SubjectsWithDuplicates = $('<li></li>').text(data[i].subjects[c]);
+				$SubjectsWithDuplicates.appendTo($LotsOfSubjects);
+			}
+		} */
+
+
+
+
 
 		$('#FindACourse').on('submit', function(evt) {
 			evt.preventDefault();

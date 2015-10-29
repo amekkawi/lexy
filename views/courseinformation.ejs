@@ -1,0 +1,28 @@
+<%
+  layout('layout');
+  %>
+
+
+<div class="TitleBar">
+	<span id="CourseTitle">Course title goes here</span>
+	<span id="HonorLabel"></span>
+
+	<div style="clear: both"></div>
+</div>
+
+<div id="Subtitle">Course's subtitle</div>
+
+<div id="CourseDescription">Course description will go here</div>
+
+<div class="List">This course is eligible for credit in the following subjects:
+	<ul id="IteratedSubjects"></ul>
+</div>
+
+<div class="List">This course is taught by some of our worst instructors, including:
+	<ul id="Staff"></ul>
+</div>
+
+</div>
+
+<script>window.guid = <%=guid%></script>
+<script src="/public/js/courseinformation.js"></script>

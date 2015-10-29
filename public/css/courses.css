@@ -18,32 +18,32 @@ body {
 }
 
 .TitleBar {
-    width: 475px;
+    margin-top: 20px;
+    margin-left: 15px;
 }
 
 #CourseTitle {
-    display: inline-block;
     font-size: 25px;
     font-weight: bold;
+    float: left;
 }
 
 #HonorLabel {
-    float: right;
-    margin-top: 28px;
-    margin-right: 25px;
+    float: left;
     background-color: #EDED85;
+    margin-top: 8px;
+    margin-left: 5px;
 }
+
 
 #CourseDescription {
     margin: 15px;
 }
 
-.very-red {
-    color: #F00;
-}
 
 #Subtitle {
-    margin-left: 5px;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 
@@ -109,10 +109,56 @@ p {
     background-color: #dad3c4;
 }
 
+#CourseBox li {
+    padding-left: 40px;
+}
+
 #Level {
     margin-left: 15px;
     padding-bottom: 10px;
 
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#subjectTitles {
+    padding-top: 10px;
+    padding-left: 0;
+    margin-left: 20px;
+    font-size: 18px;
+    float: left;
+    display: inline-block;
+}
+
+#subjectTitles a {
+    text-decoration: none;
+    color: black;
+    margin: 3px;
+    display: inline-block;
+}
+
+#coursesInSubjectBox {
+    float: left;
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 30px;
+    border: 1px solid #646D8E;
+    border-radius: 10px;
+    background: white;
+    width: 600px;
+
+}
+
+#coursesInSubject li {
+    padding: 5px;
+    max-height: 35px;
+    line-height: 1em;
+}
+
+
+
 
 
