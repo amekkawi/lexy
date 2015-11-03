@@ -4,8 +4,12 @@
 var $subjectTitles = $('#subjectTitles');
 var $coursesInSubjectBox = $('#coursesInSubjectBox');
 var $coursesInSubject = $('#coursesInSubject');
+
+// Search for the course quick info box template
 var $courseQuickInfoBox = $('#courseQuickInfoBox');
 
+// Remove the 'id' attribute from it
+$courseQuickInfoBox.removeAttr('id');
 
 $.ajax({
 	url: '/public/all.json',
@@ -72,21 +76,37 @@ $.ajax({
 				});
 
 				function courseClickHandler($link, clickedCourse) {
+					var notYetInserted = true;
 					$link.on('click', function (evt) {
 						evt.preventDefault();
 						console.log('clicked course with title', clickedCourse);
-						$courseQuickInfoBox.css('display', '');
 
-						var $guidText = $('.guid-text');
-						$guidText.empty();
-						$guidText.text(clickedCourse.guid);
-						var $staffList = $('.staff-list');
-						$staffList.empty();
-						for (var s = 0; s < clickedCourse.staff.length; s++) {
-							var $eachStaffMember = $("<li></li>").text(clickedCourse.staff[s]);
-							$eachStaffMember.appendTo($staffList);
+						//var noSiblingYet = $link.parent().find('> .info-box').size() === 0;
 
+						if (notYetInserted) {
+							notYetInserted = false;
+
+							// Clone (aka: copy) the course quick info template
+							var $copyOfTheTemplate = $courseQuickInfoBox.clone();
+
+							$copyOfTheTemplate.css('display', '');
+
+							// Find the guid element within the cloned template
+							var $guidText = $copyOfTheTemplate.find('.guid-text');
+							$guidText.text(clickedCourse.guid);
+
+							// Find the staff list element within the cloned template
+							var $staffList = $copyOfTheTemplate.find('.staff-list');
+
+							for (var s = 0; s < clickedCourse.staff.length; s++) {
+								var $eachStaffMember = $("<li></li>").text(clickedCourse.staff[s]);
+								$eachStaffMember.appendTo($staffList);
+
+							}
+
+							$copyOfTheTemplate.insertAfter($link);
 						}
+
 
 
 
