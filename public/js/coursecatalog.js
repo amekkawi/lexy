@@ -76,15 +76,24 @@ $.ajax({
 				});
 
 				function courseClickHandler($link, clickedCourse) {
-					var notYetInserted = true;
+					//var notYetInserted = true;
 					$link.on('click', function (evt) {
 						evt.preventDefault();
-						console.log('clicked course with title', clickedCourse);
+						//console.log('clicked course with title', clickedCourse);
 
-						//var noSiblingYet = $link.parent().find('> .info-box').size() === 0;
+						var noSiblingYet = $link.parent().find('> .info-box').size() === 0;
+						if (noSiblingYet === true) {
 
-						if (notYetInserted) {
-							notYetInserted = false;
+						//if (notYetInserted) {
+							//notYetInserted = false;
+							var $coursesInSubject = $('#coursesInSubject');
+							var $oldBoxes = $coursesInSubject.find('.info-box');
+							//.size here is a bit unnecessary- but just to know, .size gives you the number of elements
+							//in the result of the search. If $oldBoxes is empty, there's nothing to remove,
+							//so it won't do anything! So in this case, we can skip the size check...
+							//if ($oldBoxes.size() > 0) {
+							$oldBoxes.remove();
+
 
 							// Clone (aka: copy) the course quick info template
 							var $copyOfTheTemplate = $courseQuickInfoBox.clone();
@@ -94,6 +103,9 @@ $.ajax({
 							// Find the guid element within the cloned template
 							var $guidText = $copyOfTheTemplate.find('.guid-text');
 							$guidText.text(clickedCourse.guid);
+
+							var $courseLevelText = $copyOfTheTemplate.find('.course-level');
+							$courseLevelText.text(clickedCourse.level);
 
 							// Find the staff list element within the cloned template
 							var $staffList = $copyOfTheTemplate.find('.staff-list');
@@ -105,6 +117,10 @@ $.ajax({
 							}
 
 							$copyOfTheTemplate.insertAfter($link);
+						}
+
+						else {
+							console.log('No need.');
 						}
 
 
