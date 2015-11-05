@@ -42,7 +42,6 @@ $.ajax({
 		//console.log(Object.keys(subjectToCourseMap));
 		var subjectTitlesArray = Object.keys(subjectToCourseMap);
 		subjectTitlesArray.sort();
-		//console.log(subjectTitlesArray);
 
 		function subjectClickHandler($link, value) {
 			$link.on('click', function(evt) {
@@ -76,16 +75,12 @@ $.ajax({
 				});
 
 				function courseClickHandler($link, clickedCourse) {
-					//var notYetInserted = true;
 					$link.on('click', function (evt) {
 						evt.preventDefault();
-						//console.log('clicked course with title', clickedCourse);
 
 						var noSiblingYet = $link.parent().find('> .info-box').size() === 0;
 						if (noSiblingYet === true) {
 
-						//if (notYetInserted) {
-							//notYetInserted = false;
 							var $coursesInSubject = $('#coursesInSubject');
 							var $oldBoxes = $coursesInSubject.find('.info-box');
 							//.size here is a bit unnecessary- but just to know, .size gives you the number of elements
@@ -93,7 +88,6 @@ $.ajax({
 							//so it won't do anything! So in this case, we can skip the size check...
 							//if ($oldBoxes.size() > 0) {
 							$oldBoxes.remove();
-
 
 							// Clone (aka: copy) the course quick info template
 							var $copyOfTheTemplate = $courseQuickInfoBox.clone();
@@ -116,49 +110,18 @@ $.ajax({
 
 							}
 
-							$copyOfTheTemplate.insertAfter($link);
+							var $coursePageButton = $copyOfTheTemplate.find('.course-page-button');
+							$coursePageButton.html('<a href="/courseinformation/' + [clickedCourse.guid] + '">Go to Full Course Page</a>');
+
+                            $copyOfTheTemplate.insertAfter($link);
 						}
 
 						else {
 							console.log('No need.');
 						}
 
-
-
-
-						/*for (var s = 0; s < clickedCourse.length; s++) {
-							var $courseQuickInfoBox = $('#courseQuickInfoBox');
-							$courseQuickInfoBox.css('display', '');
-
-							var $guidText = $('.guid-text');
-							$guidText.text(clickedCourse[s].guid);
-						}*/
-
 					})
 				}
-
-
-							//var $EachStaffMember = $("<li></li>").text(clickedCourse.staff[0]);
-							//$EachStaffMember.appendTo($staffList);
-
-
-
-
-
-						//var $CopyOfTheTemplate = $('#MyTemplate').clone();
-
-
-
-				//The below turns the course names into links - WILL ADD THIS BACK IN, SLIGHTLY MODIFIED
-				/*for (var p = 0; p < coursesArrayForTheSubject.length; p++) {
-					var $eachNewCourseNameLink = $('<a href="/courseinformation/' + [coursesArrayForTheSubject[p].guid] + '"></a>');
-
-					$eachNewCourseNameLink.text(coursesArrayForTheSubject[p].l);
-					var $eachNewCourseListItem = $('<li></li>');
-					$eachNewCourseNameLink.appendTo($eachNewCourseListItem);
-					$eachNewCourseListItem.appendTo($coursesInSubject);
-				}*/
-
 
 				//the below turns the course names into links, list items, and puts them on the dom
 				for (var p = 0; p < coursesArrayForTheSubject.length; p++) {
