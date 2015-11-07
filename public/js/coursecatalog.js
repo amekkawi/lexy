@@ -111,7 +111,7 @@ $.ajax({
 							}
 
 							var $coursePageButton = $copyOfTheTemplate.find('.course-page-button');
-							$coursePageButton.html('<a href="/courseinformation/' + [clickedCourse.guid] + '">Go to Full Course Page</a>');
+							$coursePageButton.html('<a href="/courseinformation/' + encodeURIComponent(clickedCourse.guid) + '">Go to Full Course Page</a>');
 
                             $copyOfTheTemplate.insertAfter($link);
 						}
