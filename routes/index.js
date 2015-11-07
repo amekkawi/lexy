@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+var userNames = {
+  lexy: 'geo',
+  andre: 'whiskers'
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Lexy' });
@@ -23,6 +28,38 @@ router.get('/courseinformation/:guid', function(req, res) {
   res.render('courseinformation', {
     guid: guidValue
   });
+});
+
+router.get('/login', function(req, res) {
+  var login = req.query.username;
+  var pass = req.query.password;
+
+  if (typeof login !== 'string') {
+    res.json({
+      status: 'fail',
+      message: 'the "login" query param is required!'
+    });
+    return;
+  }
+
+  console.log(login, pass);
+  var correctPass = userNames[login];
+  console.log(correctPass);
+
+  //var usernameExists = userNames.hasOwnProperty(login);
+
+  if (typeof correctPass === 'string' && pass === correctPass) {
+    res.json({
+      status: 'success'
+    });
+  }
+  else {
+    res.json({
+      status: 'fail',
+      message: ''
+    });
+  }
+
 });
 
 
