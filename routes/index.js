@@ -30,6 +30,24 @@ router.get('/courseinformation/:guid', function(req, res) {
   });
 });
 
+router.get('/whoami', function(req, res) {
+  res.json({
+    username: req.session.loggedInUser
+  });
+});
+
+router.get('/logout', function(req, res) {
+  // Record what the username was before we clear it
+  var oldUsername = req.session.loggedInUser;
+
+  // Clear the username so they are no longer logged in
+  req.session.loggedInUser = undefined;
+
+  res.json({
+    username: oldUsername
+  });
+});
+
 router.get('/login', function(req, res) {
   var login = req.query.username;
   var pass = req.query.password;
@@ -49,6 +67,9 @@ router.get('/login', function(req, res) {
   //var usernameExists = userNames.hasOwnProperty(login);
 
   if (typeof correctPass === 'string' && pass === correctPass) {
+    // record who is logged in for the session
+    req.session.loggedInUser = login;
+
     res.json({
       status: 'success'
     });
