@@ -3,7 +3,8 @@ var router = express.Router();
 
 var userNames = {
   lexy: 'geo',
-  andre: 'whiskers'
+  andre: 'whiskers',
+  michael: 'fox',
 }
 
 /* GET home page. */
@@ -28,6 +29,10 @@ router.get('/courseinformation/:guid', function(req, res) {
   res.render('courseinformation', {
     guid: guidValue
   });
+});
+
+router.get('/studentlogin', function(req, res) {
+  res.render('studentlogin');
 });
 
 router.get('/whoami', function(req, res) {
