@@ -74,10 +74,24 @@ ul {
     text-decoration: none;
     color: #7986a5;
     font-size: 17px;
-    padding: 5px;
-    margin-left: 2px;
-    margin-right: 2px;
+    padding: 4px;
+    margin-left: 1px;
+    margin-right: 1px;
 
+}
+
+#LogOut a {
+    font-size: 17px;
+    padding: 4px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#LogMeIn a {
+    font-size: 17px;
+    padding: 4px;
+    margin-left: 1px;
+    margin-right: 1px;
 }
 
 #Nav a:visited {
@@ -153,10 +167,64 @@ ul {
 }
 
 #coursesInSubject li {
-    padding: 5px;
-    max-height: 35px;
-    line-height: 1em;
+    padding: 2px;
 }
+
+.info-box {
+    background: #e8dbcc;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #720000;
+    padding: 2px;
+    padding-bottom: 6px;
+}
+
+.course-page-button {
+    background: #927855;
+    border-radius: 5px;
+    padding: 3px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.course-page-button a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #720000;
+}
+
+#ActiveDash {
+    border-style: solid;
+    border-color: #745e43;
+    background: white;
+    font-size: 18px;
+}
+
+#ActiveDash > span {
+    padding: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#Hi {
+    text-transform: none;
+}
+
+#SignUpButton  a {
+    background: #927855;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px;
+}
+
+
+
+
+
+
+
 
 
 
